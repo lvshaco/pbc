@@ -18,6 +18,7 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 
+#include "src/alloc.h"
 #include "pbc.h"
 
 static inline void *

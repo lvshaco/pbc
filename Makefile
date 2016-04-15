@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O2 -fPIC -Wall
+CFLAGS = -O2 -fPIC -Wall -DUSE_SHACO_MALLOC
 AR = ar rc
 
 BUILD = build

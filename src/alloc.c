@@ -3,24 +3,29 @@
 
 static int _g = 0;
 
+#ifndef USE_SHACO_MALLOC
+
 void * _pbcM_malloc(size_t sz) {
-	++ _g;
-	return malloc(sz);
+    ++ _g;
+    return malloc(sz);
 }
 
 void _pbcM_free(void *p) {
-	if (p) {
-		-- _g;
-		free(p);
-	}
+    if (p) {
+        -- _g;
+        free(p);
+    }
 }
 
 void* _pbcM_realloc(void *p, size_t sz) {
-	return realloc(p,sz);
+    return realloc(p,sz);
 }
+#else
+#include "alloc.h"
+#endif
 
 void _pbcM_memory() {
-	printf("%d\n",_g);	
+    printf("%d\n",_g);	
 }
 
 struct heap_page {

@@ -1,3 +1,13 @@
+#include <string.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#ifndef _MSC_VER
+#include <stdbool.h>
+#else
+#define alloca _alloca
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -5,29 +15,14 @@ extern "C" {
 #include "lualib.h"
 #include "lauxlib.h"
 
+#include "src/alloc.h"
 #include "pbc.h"
-
 #ifdef __cplusplus
 }
 #endif
 
-#include <stdbool.h>
-#if defined(__APPLE__)
-    #include <malloc/malloc.h>
-#else
-    #include <malloc.h>
-#endif
 
 
-#ifndef _MSC_VER
-#include <alloca.h>
-#else
-#define alloca _alloca
-#endif
-
-#include <string.h>
-#include <stdlib.h>
-#include <stdint.h>
 
 #if LUA_VERSION_NUM == 501
 

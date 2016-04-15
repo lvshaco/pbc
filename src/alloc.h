@@ -4,9 +4,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef USE_SHACO_MALLOC
+
+void *shaco_malloc(size_t size);
+void *shaco_realloc(void *ptr, size_t size);
+void  shaco_free(void *ptr);
+
+#define _pbcM_malloc    shaco_malloc
+#define _pbcM_free      shaco_free
+#define _pbcM_realloc   shaco_realloc
+
+#else
 void * _pbcM_malloc(size_t sz);
 void _pbcM_free(void *p);
 void * _pbcM_realloc(void *p, size_t sz);
+#endif
+
 void _pbcM_memory();
 
 struct heap;
