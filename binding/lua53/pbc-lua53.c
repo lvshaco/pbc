@@ -8,8 +8,6 @@ extern "C" {
 }
 #endif
 
-#include <malloc.h>
-
 #ifndef _MSC_VER
 #include <stdbool.h>
 #else
